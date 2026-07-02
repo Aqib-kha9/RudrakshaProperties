@@ -6,28 +6,28 @@ import { motion, AnimatePresence } from "framer-motion";
 const PROPERTIES = [
   {
     id: 1,
-    videoSrc: "/206694.mp4",
+    videoSrc: "https://res.cloudinary.com/djnlblv5m/video/upload/hero_videos/206694.mp4",
     posterSrc: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1920&auto=format&fit=crop",
     label: "Residential Plots, Indore",
     area: "Super Corridor | Ujjain Road | Rau",
   },
   {
     id: 2,
-    videoSrc: "/302062.mp4",
+    videoSrc: "https://res.cloudinary.com/djnlblv5m/video/upload/hero_videos/302062.mp4",
     posterSrc: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1920&auto=format&fit=crop",
     label: "Premium Plots, Pithampur",
     area: "Starting ₹6 Lakhs | Betma Road",
   },
   {
     id: 3,
-    videoSrc: "/313454.mp4",
+    videoSrc: "https://res.cloudinary.com/djnlblv5m/video/upload/hero_videos/313454.mp4",
     posterSrc: "https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=1920&auto=format&fit=crop",
     label: "Commercial Spaces, Madhya Pradesh",
     area: "T&CP Approved | Legal & Verified",
   },
   {
     id: 4,
-    videoSrc: "/345412.mp4",
+    videoSrc: "https://res.cloudinary.com/djnlblv5m/video/upload/hero_videos/345412.mp4",
     posterSrc: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1920&auto=format&fit=crop",
     label: "Premium Infrastructure & Construction",
     area: "Quality Turnkey Construction | MP",
