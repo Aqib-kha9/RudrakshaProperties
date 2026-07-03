@@ -79,7 +79,7 @@ export function FloatingCTA() {
 
                   {/* Enquire Button */}
                   <a
-                    href="#contact"
+                    href="/contact"
                     className="flex items-center gap-1.5 px-4 py-2 bg-black text-white rounded-full hover:bg-primary hover:text-black transition-all group text-[11px] font-black uppercase tracking-widest"
                   >
                     Enquire

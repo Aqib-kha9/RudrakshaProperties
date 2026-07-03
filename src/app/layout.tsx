@@ -21,12 +21,12 @@ export const metadata: Metadata = {
     default: "Rudraksha Properties & Construction | Premium Real Estate Indore",
     template: "%s | Rudraksha Properties"
   },
-  description: "Rudraksha Properties & Construction — Indore's trusted real estate firm. T&CP approved residential plots, commercial spaces, farmhouse lands, and turnkey construction across Super Corridor, Ujjain Road, Pithampur & more. 4.8★ on Justdial.",
-  keywords: ["real estate indore", "plots in indore", "residential plots mp", "commercial property indore", "rudraksha properties", "pithampur plots", "super corridor indore", "ujjain road plots", "T&CP approved plots", "property investment indore", "construction firm indore"],
+  description: "Rudraksha Properties & Construction — Indore's trusted real estate firm with 12 years of excellence. T&CP approved residential plots, commercial plots, and turnkey construction across Betma Bypass, Sagore Kuti, Pithampur & Madhya Pradesh. Easy EMI & finance facilities available. 4.8★ on Justdial.",
+  keywords: ["real estate indore", "plots in indore", "residential plots mp", "commercial property indore", "rudraksha properties", "pithampur plots", "betma bypass plots", "sagore kuti plots", "rudraksh city betma", "T&CP approved plots", "property investment indore", "construction firm indore", "easy emi plots indore"],
   authors: [{ name: "Rudraksha Properties & Construction" }],
   openGraph: {
     title: "Rudraksha Properties & Construction | Premium Real Estate Indore",
-    description: "Indore's most trusted real estate and construction firm. T&CP approved plots, residential & commercial properties across Indore, Pithampur, and MP.",
+    description: "Indore's most trusted real estate and construction firm — 12 years of excellence. T&CP approved plots, residential & commercial properties across Betma Bypass, Sagore Kuti, Pithampur & MP. From Zero To Peak.",
     url: "https://www.rudrakshproperties.com",
     siteName: "Rudraksha Properties & Construction",
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Rudraksha Properties & Construction | Real Estate Indore",
-    description: "Trusted real estate & construction firm in Indore, MP. T&CP approved plots, residential and commercial properties.",
+    description: "Trusted real estate & construction firm in Indore, MP — 12 years of excellence. T&CP approved plots, residential and commercial properties. From Zero To Peak.",
     images: ["/assets/rudraksha-og.jpg"],
   },
   icons: {
@@ -94,20 +94,22 @@ export default function RootLayout({
               "address": [
                 {
                   "@type": "PostalAddress",
-                  "streetAddress": "Hortus Conclusus, Pithampur Industrial Area, Vijay Nagar Colony, Badi Bagdun",
-                  "addressLocality": "Pithampur",
+                  "streetAddress": "Annapurna Road, Usha Nagar",
+                  "addressLocality": "Indore",
                   "addressRegion": "Madhya Pradesh",
                   "addressCountry": "IN"
                 },
                 {
                   "@type": "PostalAddress",
-                  "streetAddress": "Annapurna Road, Usha Nagar",
-                  "addressLocality": "Indore",
+                  "streetAddress": "Betma Bypass",
+                  "addressLocality": "Pithampur",
                   "addressRegion": "Madhya Pradesh",
                   "addressCountry": "IN"
                 }
               ],
-              "areaServed": ["Indore", "Pithampur", "Super Corridor", "Ujjain Road", "Rau"],
+              "areaServed": ["Indore", "Betma Bypass", "Sagore Kuti", "Pithampur", "Madhya Pradesh"],
+              "slogan": "From Zero To Peak — शून्य से शिखर तक",
+              "foundingDate": "2013",
               "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",

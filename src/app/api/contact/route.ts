@@ -2,11 +2,16 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    const { phone } = await request.json();
+    const { phone, name, projectName } = await request.json();
 
     if (!phone) {
       return NextResponse.json({ error: 'Phone number is required' }, { status: 400 });
     }
+
+    const leadType = projectName ? `Brochure Request for ${projectName}` : 'Callback Request';
+    const emailSubject = projectName 
+      ? `New Lead: Brochure Download for ${projectName}`
+      : 'New Lead: Call Request from Rudraksha Website';
 
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
@@ -17,23 +22,25 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         sender: {
-          name: 'Orovista Website',
+          name: 'Rudraksha Website',
           email: 'aafaqueshaikh555@gmail.com'
         },
         to: [
           {
-            email: 'orovistaholidays@gmail.com',
-            name: 'Orovista Admin'
+            email: 'rudrakshproperties7079@gmail.com',
+            name: 'Rudraksha Admin'
           }
         ],
-        subject: 'New Lead: Call Request from Website',
+        subject: emailSubject,
         htmlContent: `
           <html>
             <body style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-              <h2 style="color: #000;">New Call Request!</h2>
-              <p>A new user has requested a call back from the Orovista Holidays website.</p>
-              <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin-top: 20px;">
-                <p style="margin: 0; font-size: 16px;"><strong>Phone Number:</strong> ${phone}</p>
+              <h2 style="color: #000;">New Property Lead!</h2>
+              <p>A new lead has been submitted on the Rudraksha Properties website.</p>
+              <div style="background-color: #f5f5f5; padding: 20px; border-radius: 12px; margin-top: 20px; border: 1px solid #e5e7eb;">
+                <p style="margin: 0 0 10px 0; font-size: 15px;"><strong>Lead Source:</strong> ${leadType}</p>
+                <p style="margin: 0 0 10px 0; font-size: 15px;"><strong>Name:</strong> ${name || 'N/A'}</p>
+                <p style="margin: 0; font-size: 15px;"><strong>Phone Number:</strong> ${phone}</p>
               </div>
             </body>
           </html>

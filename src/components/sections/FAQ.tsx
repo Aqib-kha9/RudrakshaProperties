@@ -7,7 +7,7 @@ const faqs = [
   {
     number: "01",
     question: "Which areas do you operate in?",
-    answer: "We operate across Indore and surrounding areas including Super Corridor, Ujjain Road, Rau, Annapurna Road (Usha Nagar), and Pithampur (Vijay Nagar Colony, Badi Bagdun, Betma Road, Sagore Kuti). We serve clients across Madhya Pradesh."
+    answer: "We operate across Indore and surrounding areas including Annapurna Road (Usha Nagar), Betma Bypass, and Pithampur (Badi Bagdun, Betma Road, Sagore Kuti). We serve clients across Madhya Pradesh."
   },
   {
     number: "02",

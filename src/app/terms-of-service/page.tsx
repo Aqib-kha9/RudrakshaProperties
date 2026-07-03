@@ -3,8 +3,8 @@ import Footer from "@/components/layout/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Orovista Holidays",
-  description: "Review the Terms of Service for booking and traveling with Orovista Holidays.",
+  title: "Terms of Service | Rudraksha Properties & Construction",
+  description: "Review the Terms of Service for investing with Rudraksha Properties & Construction.",
   robots: {
     index: true,
     follow: true,
@@ -25,22 +25,22 @@ export default function TermsOfService() {
         <div className="space-y-8 text-[14px] md:text-[16px] text-black/70 leading-relaxed font-medium">
           <section>
             <h2 className="text-2xl font-black uppercase tracking-tight text-black mb-4">1. Agreement to Terms</h2>
-            <p>These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Orovista Holidays ("we," "us" or "our"), concerning your access to and use of our website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto.</p>
+            <p>These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Rudraksha Properties & Construction ("we," "us" or "our"), concerning your access to and use of our website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto.</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black uppercase tracking-tight text-black mb-4">2. Booking and Payments</h2>
-            <p>When booking a tour or travel package through Orovista Holidays, you agree to provide accurate and complete information. A deposit is required to secure your booking. Full payment must be received by the date specified in your booking confirmation. We accept various forms of payment, which will be outlined during the booking process.</p>
+            <h2 className="text-2xl font-black uppercase tracking-tight text-black mb-4">2. Bookings and Transactions</h2>
+            <p>When booking a property site visit, plot reservation, or construction contract through Rudraksha Properties & Construction, you agree to provide accurate and complete information. A token deposit is required to secure your booking. Full payment and registrations must be completed in accordance with the project milestones and agreements.</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black uppercase tracking-tight text-black mb-4">3. Cancellations and Refunds</h2>
-            <p>Our cancellation policy varies depending on the specific tour or travel package booked. Generally, cancellations made closer to the departure date will incur higher fees. Please review the specific cancellation terms provided to you at the time of booking. Refunds, if applicable, will be processed in accordance with these terms.</p>
+            <h2 className="text-2xl font-black uppercase tracking-tight text-black mb-4">3. Cancellations and Cancellations Policy</h2>
+            <p>Our cancellation policy varies depending on the specific property type, project site, or construction agreement. Generally, plot booking cancellations will carry administrative charges as per the booking form agreements. Please review the specific terms provided during the booking consultation.</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-black uppercase tracking-tight text-black mb-4">4. Travel Documents and Requirements</h2>
-            <p>You are responsible for ensuring that you have all necessary travel documents, including valid passports, visas, and health certificates, for your journey. Orovista Holidays is not liable for any issues arising from your failure to obtain or carry the proper documentation.</p>
+            <h2 className="text-2xl font-black uppercase tracking-tight text-black mb-4">4. Verification Documents</h2>
+            <p>You are responsible for ensuring that you have all necessary KYC documents, PAN card, and financial approvals for property registration. Rudraksha Properties & Construction is not liable for issues arising from registration delays due to incomplete customer documentation.</p>
           </section>
 
           <section>
@@ -52,9 +52,9 @@ export default function TermsOfService() {
             <h2 className="text-2xl font-black uppercase tracking-tight text-black mb-4">6. Contact Information</h2>
             <p>For any questions or concerns regarding these Terms of Service, please contact us at:</p>
             <div className="mt-4 p-6 bg-[#eeeae7] rounded-2xl">
-              <p className="mb-2"><strong>Email:</strong> Orovistaholidays@gmail.com</p>
-              <p className="mb-2"><strong>Phone:</strong> +91 96190 99699</p>
-              <p><strong>Address:</strong> 107, First Floor, Crescent Business Park, Off Telephone Exchange Lane, Behind Fairfield Hotel, Saki Naka, Mumbai, Maharashtra 400072</p>
+              <p className="mb-2"><strong>Email:</strong> rudrakshproperties7079@gmail.com</p>
+              <p className="mb-2"><strong>Phone:</strong> +91 9009250061</p>
+              <p><strong>Address:</strong> Hortus conclusus, JHQR+4F2, Pithampur Industrial Area, Vijay Nagar Colony, Madhya Pradesh 454774</p>
             </div>
           </section>
         </div>

@@ -11,8 +11,6 @@ import {
   Zap,
   Home,
   Building2,
-  Landmark,
-  Trees,
   ChevronRight,
   ArrowRight,
   Star,
@@ -23,7 +21,7 @@ const categories = [
   {
     id: "01",
     title: "Residential Plots",
-    description: "T&CP approved residential plots across Super Corridor, Ujjain Road, and Rau. Starting from ₹6 Lakhs in Pithampur.",
+    description: "T&CP approved residential plots across Sagore Kuti, Betma Bypass, and Pithampur. Starting from ₹6 Lakhs.",
     image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=800",
     color: "bg-[#eeeae7]",
     span: "md:col-span-8",
@@ -33,7 +31,7 @@ const categories = [
       quote: "A home starts with a plot you can trust. At Rudraksha, every square foot comes with our promise.",
       features: [
         { icon: <ShieldCheck />, title: "T&CP Approved", desc: "All residential plots carry full Town & Country Planning approval for complete legal security." },
-        { icon: <Map />, title: "Prime Locations", desc: "Super Corridor, Ujjain Road, Rau, and Pithampur — Indore's fastest growing areas." },
+        { icon: <Map />, title: "Prime Locations", desc: "Sagore Kuti, Betma Bypass, and Pithampur — Madhya Pradesh's fastest growing areas." },
         { icon: <CheckCircle2 />, title: "Transparent Pricing", desc: "Starting ₹6 Lakhs in Pithampur. No hidden charges, full clarity on every deal." },
         { icon: <Star />, title: "4.8★ Trust", desc: "Consistent 4.8★ rating on Justdial from 5000+ satisfied property buyers." }
       ],
@@ -46,57 +44,34 @@ const categories = [
   },
   {
     id: "02",
-    title: "Commercial Spaces",
-    description: "Premium commercial developments across Indore's key commercial corridors. Shops, offices & business spaces.",
+    title: "Commercial Plots",
+    description: "Premium commercial plots across Indore's key commercial corridors. T&CP approved plots for business investment.",
     image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=800",
     color: "bg-white",
     span: "md:col-span-4",
     details: {
-      headline: "Business Locations That Work.",
-      philosophy: "The right commercial address defines your business success. We provide premium commercial spaces in Indore's most sought-after locations.",
+      headline: "Business Plots That Work.",
+      philosophy: "The right commercial address defines your business success. We provide premium commercial plots in Indore's most sought-after locations.",
       quote: "The best investment a business can make is in its address.",
       features: [
-        { icon: <Building2 />, title: "Prime Commercial", desc: "Strategically located in Indore's commercial hotspots for maximum business visibility." },
-        { icon: <ShieldCheck />, title: "Legal Clarity", desc: "All commercial properties come with clear titles and proper documentation." },
-        { icon: <Zap />, title: "Ready Infrastructure", desc: "Properties with ready road access, utilities, and modern infrastructure." },
+        { icon: <Building2 />, title: "Prime Commercial Plots", desc: "Strategically located commercial plots in Indore's commercial hotspots for maximum business visibility." },
+        { icon: <ShieldCheck />, title: "Legal Clarity", desc: "All commercial plots come with clear titles and proper documentation." },
+        { icon: <Zap />, title: "Ready Infrastructure", desc: "Plots with ready road access, utilities, and modern infrastructure." },
         { icon: <CheckCircle2 />, title: "Selling Only", desc: "We focus exclusively on property selling — ensuring your investment is our priority." }
       ],
       process: ["Requirement Understanding", "Property Shortlisting", "Legal Verification", "Final Registration"],
       faqs: [
-        { q: "Do you offer commercial rentals?", a: "We focus primarily on selling commercial properties. Contact us to discuss available options." }
+        { q: "Do you offer commercial rentals?", a: "We focus primarily on selling commercial plots. Contact us to discuss available options." }
       ]
     }
   },
   {
     id: "03",
-    title: "Farmhouse & Agricultural",
-    description: "Agricultural lands, farmhouse plots, and highway-touch properties across Madhya Pradesh.",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800",
-    color: "bg-white",
-    span: "md:col-span-4",
-    details: {
-      headline: "Land Investment That Grows.",
-      philosophy: "Agricultural and farmhouse plots represent some of the best long-term investments in MP. We connect you with verified, accessible, and appreciating land assets.",
-      quote: "Land is the only thing in the world that amounts to anything — Margaret Mitchell",
-      features: [
-        { icon: <Trees />, title: "Farmhouse Plots", desc: "Premium farmhouse plots near Indore with good highway connectivity." },
-        { icon: <Map />, title: "Highway Touch", desc: "Very good highway-touch land options for investors seeking appreciating assets." },
-        { icon: <Landmark />, title: "Agricultural Land", desc: "Verified agricultural lands with clear titles across MP." },
-        { icon: <ShieldCheck />, title: "Verified Titles", desc: "All agricultural properties come with thoroughly verified legal documentation." }
-      ],
-      process: ["Investment Goals Discussion", "Land Shortlisting", "Title & Documentation Check", "Registration & Handover"],
-      faqs: [
-        { q: "Can non-farmers buy agricultural land?", a: "Please consult with our team — we provide complete guidance on eligibility and legal procedures for agricultural land purchase in MP." }
-      ]
-    }
-  },
-  {
-    id: "04",
     title: "Turnkey Construction",
     description: "End-to-end customized home construction. From foundation to finishing — we build your dream home.",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800",
     color: "bg-[#eeeae7]",
-    span: "md:col-span-8",
+    span: "md:col-span-12",
     details: {
       headline: "We Build, You Dream.",
       philosophy: "Our turnkey construction service takes care of everything — design, material procurement, labor, and finishing. You get the keys to your dream home without the stress.",
@@ -126,7 +101,7 @@ export function ServiceCategories() {
         {/* Editorial Section Header */}
         <div className="relative mb-24 md:mb-32">
           <div className="absolute -top-12 -left-4 text-[120px] md:text-[200px] font-black text-black/[0.03] select-none pointer-events-none tracking-tighter italic leading-none">
-            04
+            03
           </div>
 
           <div className="relative z-10 flex flex-col md:flex-row justify-between items-end gap-12">
@@ -153,7 +128,7 @@ export function ServiceCategories() {
             >
               <div className="w-[1px] h-20 bg-black/10 hidden md:block" />
               <p className="text-[14px] md:text-[16px] text-black/50 font-medium leading-relaxed">
-                From residential plots to commercial spaces and turnkey construction — we handle everything for you with full legal transparency.
+                From residential plots to commercial plots and turnkey construction — we handle everything for you with full legal transparency.
               </p>
             </motion.div>
           </div>
@@ -189,7 +164,7 @@ export function ServiceCategories() {
             </div>
           </motion.div>
 
-          {/* Card 02 - Commercial Spaces */}
+          {/* Card 02 - Commercial Plots */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -204,57 +179,32 @@ export function ServiceCategories() {
                   <ArrowUpRight className="w-6 h-6" />
                 </button>
               </div>
-              <h3 className="text-[28px] md:text-[32px] font-black tracking-tighter text-black uppercase leading-none mb-4">Commercial <br /> Spaces</h3>
+              <h3 className="text-[28px] md:text-[32px] font-black tracking-tighter text-black uppercase leading-none mb-4">Commercial <br /> Plots</h3>
             </div>
             <div className="mt-auto relative h-[250px] overflow-hidden rounded-t-[30px]">
-              <img src={categories[1].image} className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" alt="Commercial Spaces - Indore Business Properties" />
+              <img src={categories[1].image} className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" alt="Commercial Plots - Indore Business Properties" />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent flex items-end p-10">
                 <p className="text-[13px] text-black/60 font-bold leading-tight uppercase tracking-tight">{categories[1].description}</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Card 03 - Farmhouse & Agricultural */}
+          {/* Card 03 - Turnkey Construction (Full Width) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="md:col-span-4 bg-white border border-black/5 rounded-[24px] overflow-hidden group flex flex-col shadow-sm"
-          >
-            <div className="p-10 pb-0">
-              <div className="flex justify-between items-start">
-                <span className="text-[14px] font-black text-black/20 mb-4 block tracking-tighter italic">#03</span>
-                <button onClick={() => setSelectedService(categories[2])} className="text-black/40 hover:text-black">
-                  <ArrowUpRight className="w-6 h-6" />
-                </button>
-              </div>
-              <h3 className="text-[28px] md:text-[32px] font-black tracking-tighter text-black uppercase leading-none mb-4">Farmhouse & <br /> Agricultural</h3>
-            </div>
-            <div className="mt-auto relative h-[250px] overflow-hidden rounded-t-[40px]">
-              <img src={categories[2].image} className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" alt="Farmhouse and Agricultural Land - Madhya Pradesh" />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent flex items-end p-10">
-                <p className="text-[13px] text-black/60 font-bold leading-tight uppercase tracking-tight">{categories[2].description}</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Card 04 - Turnkey Construction */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="md:col-span-8 bg-[#eeeae7] rounded-[24px] overflow-hidden group flex flex-col md:flex-row-reverse shadow-sm border border-black/5"
+            className="md:col-span-12 bg-[#eeeae7] rounded-[24px] overflow-hidden group flex flex-col md:flex-row shadow-sm border border-black/5"
           >
             <div className="p-10 md:w-1/2 flex flex-col justify-between">
               <div>
-                <span className="text-[14px] font-black text-black/20 italic mb-4 block">#04</span>
+                <span className="text-[14px] font-black text-black/20 italic mb-4 block">#03</span>
                 <h3 className="text-[32px] md:text-[42px] font-black tracking-tighter text-black uppercase leading-none mb-6">Turnkey <br /> Construction</h3>
-                <p className="text-[14px] text-black/50 font-medium leading-relaxed max-w-[280px]">{categories[3].description}</p>
+                <p className="text-[14px] text-black/50 font-medium leading-relaxed max-w-[280px]">{categories[2].description}</p>
               </div>
               <button
-                onClick={() => setSelectedService(categories[3])}
+                onClick={() => setSelectedService(categories[2])}
                 className="mt-8 flex items-center gap-2 text-black font-black uppercase text-[11px] tracking-widest cursor-pointer group-hover:gap-4 transition-all"
               >
                 LEARN MORE <ArrowUpRight className="w-4 h-4" />
@@ -262,7 +212,7 @@ export function ServiceCategories() {
             </div>
             <div className="md:w-1/2 relative overflow-hidden p-3">
               <div className="w-full h-full overflow-hidden rounded-[30px]">
-                <img src={categories[3].image} className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" alt="Turnkey Construction - Custom Home Building Indore" />
+                <img src={categories[2].image} className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" alt="Turnkey Construction - Custom Home Building Indore" />
               </div>
             </div>
           </motion.div>

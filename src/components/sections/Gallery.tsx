@@ -11,7 +11,7 @@ const GALLERY_ITEMS = [
     id: 1,
     type: "image",
     url: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200",
-    location: "Super Corridor, Indore",
+    location: "Betma Bypass, Indore",
     category: "Residential Plots",
     span: "md:col-span-2 md:row-span-2",
   },
@@ -51,7 +51,7 @@ const GALLERY_ITEMS = [
     id: 6,
     type: "image",
     url: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=800",
-    location: "Ujjain Road Corridor",
+    location: "Badi Bagdun, Pithampur",
     category: "Appreciating Assets",
     span: "md:col-span-1 md:row-span-1",
   }

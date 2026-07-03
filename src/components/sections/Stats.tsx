@@ -44,7 +44,7 @@ export function Stats() {
             </div>
           </motion.div>
 
-          {/* Card 2: Expert Team */}
+          {/* Card 2: Years of Excellence */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 10 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -54,13 +54,14 @@ export function Stats() {
           >
             <img
               src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=1000&auto=format&fit=crop"
-              alt="Expert Team - Rudraksha Properties"
+              alt="12 Years of Excellence - Rudraksha Properties"
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/75 to-black/25"></div>
             <div className="relative z-10 flex flex-col justify-end h-full">
-              <h3 className="text-[40px] md:text-[48px] font-normal text-white leading-none mb-1 md:mb-2 tracking-tight">100+</h3>
-              <p className="text-white/70 text-[12px] md:text-[14px] font-medium tracking-wide">Expert Team Members</p>
+              <h3 className="text-[40px] md:text-[48px] font-normal text-white leading-none mb-1 md:mb-2 tracking-tight">12+</h3>
+              <p className="text-white/70 text-[12px] md:text-[14px] font-medium tracking-wide">Years of Excellence</p>
+              <p className="text-white/40 text-[9px] md:text-[10px] font-medium tracking-[0.2em] uppercase mt-1">From Zero To Peak</p>
             </div>
           </motion.div>
 

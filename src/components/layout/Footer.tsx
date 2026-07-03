@@ -66,11 +66,11 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { name: "Residential Plots", href: "#services" },
-                { name: "Commercial Spaces", href: "#services" },
-                { name: "Farmhouse Plots", href: "#services" },
-                { name: "Agricultural Land", href: "#services" },
-                { name: "Industrial Properties", href: "#services" },
-                { name: "Highway Touch Lands", href: "#services" }
+                { name: "Commercial Plots", href: "#services" },
+                { name: "Turnkey Construction", href: "#services" },
+                { name: "Rudraksha City, Betma Bypass", href: "#packages" },
+                { name: "Sagore Kuti Plots", href: "#packages" },
+                { name: "Pithampur Plots", href: "#packages" }
               ].map((d, i) => (
                 <li key={i}>
                   <Link href={d.href} className="text-[12px] font-semibold text-black/40 hover:text-black uppercase tracking-tight transition-colors">{d.name}</Link>
@@ -121,9 +121,20 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-3 h-3 text-black/30 mt-0.5 shrink-0" />
-                <span className="text-[11px] font-semibold text-black/30 uppercase tracking-tight leading-relaxed">
-                  Annapurna Road, Usha Nagar, Indore (MP)
-                </span>
+                <div className="space-y-2">
+                  <div>
+                    <span className="text-[9px] font-black text-primary uppercase tracking-widest block mb-0.5">Head Office</span>
+                    <span className="text-[11px] font-semibold text-black/40 uppercase tracking-tight leading-relaxed block">
+                      Hortus conclusus, JHQR+4F2, Pithampur Industrial Area, Vijay Nagar Colony, Madhya Pradesh 454774
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-black text-primary uppercase tracking-widest block mb-0.5">Branch Office</span>
+                    <span className="text-[11px] font-semibold text-black/40 uppercase tracking-tight leading-relaxed block">
+                      Annapurna Rd, Usha Nagar, Indore, Madhya Pradesh 452009
+                    </span>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
@@ -144,12 +155,12 @@ export default function Footer() {
             ))}
             <span className="w-px h-3 bg-black/15" />
             <a
-              href="https://www.linkedin.com/in/aqib-kha9"
+              href="https://www.softuitionitsolutions.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[10px] font-black uppercase tracking-widest text-black/25 hover:text-primary transition-colors"
             >
-              Developed by <span className="text-black/40">Aqib</span>
+              Developed by <span className="text-black/40">Softuition IT Solutions</span>
             </a>
           </div>
         </div>

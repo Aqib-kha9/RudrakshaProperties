@@ -1,74 +1,26 @@
 "use client";
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
-   X,
    MapPin,
-   ArrowRight,
    ChevronRight,
    ChevronLeft,
-   ArrowUpRight
+   ArrowUpRight,
+   Search
 } from 'lucide-react';
-
-const packages = [
-   {
-      id: "rudraksh-greens",
-      title: "Rudraksh Greens",
-      location: "Super Corridor, Indore",
-      duration: "T&CP Approved Plots",
-      price: "Call for Price",
-      image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200",
-      description: "Premium residential plots in Indore's most sought-after location — the Super Corridor. T&CP approved with excellent connectivity and appreciation potential."
-   },
-   {
-      id: "pithampur-plots",
-      title: "Pithampur Residential Plots",
-      location: "Betma Road, Pithampur",
-      duration: "Starting ₹6 Lakhs",
-      price: "₹6 Lakhs+",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200",
-      description: "Affordable residential plots near Sagore Kuti, Betma Road, Pithampur. Legal, verified, and perfect for first-time property buyers."
-   },
-   {
-      id: "ujjain-road",
-      title: "Ujjain Road Development",
-      location: "Ujjain Road, Indore",
-      duration: "Prime Location Plots",
-      price: "Call for Price",
-      image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=1200",
-      description: "Strategic plots along Indore's booming Ujjain Road corridor. High growth potential with excellent road connectivity and infrastructure."
-   },
-   {
-      id: "rau-projects",
-      title: "Rau Area Projects",
-      location: "Rau, Indore",
-      duration: "Residential & Commercial",
-      price: "Call for Price",
-      image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1200",
-      description: "Residential and commercial properties in the rapidly developing Rau area — one of Indore's fastest-growing investment zones."
-   },
-   {
-      id: "vijay-nagar",
-      title: "Vijay Nagar Colony Plots",
-      location: "Vijay Nagar, Pithampur",
-      duration: "Badi Bagdun Area",
-      price: "Call for Price",
-      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200",
-      description: "Premium residential plots in the Vijay Nagar Colony, Badi Bagdun area near Pithampur Industrial Area — ideal for investment and settlement."
-   }
-];
+import { properties as packages } from '@/data/properties';
 
 export function Packages() {
-   const [selectedPackage, setSelectedPackage] = useState<any>(null);
-   const [dbPackages, setDbPackages] = useState<any[]>([]);
+   const router = useRouter();
    const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-   useEffect(() => {
-      // API fetch disabled to prevent loading travel packages from DB
-   }, []);
-
-   const displayPackages = packages;
+   // Search & Filter States
+   const [searchQuery, setSearchQuery] = useState("");
+   const [selectedType, setSelectedType] = useState("All");
+   const [selectedLocation, setSelectedLocation] = useState("All");
+   const [selectedBudget, setSelectedBudget] = useState("All");
 
    const scroll = (direction: 'left' | 'right') => {
       if (scrollContainerRef.current) {
@@ -78,21 +30,30 @@ export function Packages() {
       }
    };
 
-   // Hide main navbar when overlay is open
-   useEffect(() => {
-      const navbar = document.getElementById('main-navbar');
-      if (selectedPackage) {
-         if (navbar) navbar.style.display = 'none';
-         document.body.style.overflow = 'hidden';
-      } else {
-         if (navbar) navbar.style.display = 'block';
-         document.body.style.overflow = 'auto';
+   // Filter Logic
+   const filteredPackages = packages.filter((pkg) => {
+      const matchesSearch = pkg.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                            pkg.location.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                            pkg.description.toLowerCase().includes(searchQuery.toLowerCase());
+      
+      const matchesType = selectedType === "All" || pkg.type === selectedType;
+      
+      const matchesLocation = selectedLocation === "All" || 
+                              pkg.location.toLowerCase().includes(selectedLocation.toLowerCase());
+      
+      let matchesBudget = true;
+      if (selectedBudget === "under-10") {
+         matchesBudget = pkg.budget < 10;
+      } else if (selectedBudget === "10-20") {
+         matchesBudget = pkg.budget >= 10 && pkg.budget <= 20;
+      } else if (selectedBudget === "above-20") {
+         matchesBudget = pkg.budget > 20;
       }
-      return () => {
-         if (navbar) navbar.style.display = 'block';
-         document.body.style.overflow = 'auto';
-      };
-   }, [selectedPackage]);
+
+      return matchesSearch && matchesType && matchesLocation && matchesBudget;
+   });
+
+   const displayPackages = filteredPackages;
 
    return (
       <section id="packages" className="w-full bg-white font-sans overflow-hidden flex flex-col relative z-20">
@@ -137,107 +98,163 @@ export function Packages() {
                </div>
             </div>
 
-            {/* --- Phase 2: Card Canvas --- */}
-            <div
-               ref={scrollContainerRef}
-               className="flex-grow flex flex-col md:flex-row gap-12 md:gap-6 md:overflow-x-auto no-scrollbar snap-y md:snap-x snap-mandatory pb-10"
-               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-               {displayPackages.map((pkg: any, index) => (
-                  <motion.div
-                     key={pkg._id || pkg.id}
-                     initial={{ opacity: 0, y: 20 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     viewport={{ once: true }}
-                     transition={{ delay: index * 0.1 }}
-                     className="w-full md:min-w-full snap-center flex flex-col group cursor-pointer bg-[#f8f6f4] md:bg-transparent p-5 md:p-0 rounded-[40px] md:rounded-0"
-                     onClick={() => setSelectedPackage(pkg)}
-                  >
-                     {/* --- Image Block (Top on Mobile, Bottom on Desktop) --- */}
-                     <div className="order-1 md:order-2 h-[250px] sm:h-[300px] md:h-[300px] lg:h-[380px] w-full overflow-hidden rounded-[28px] md:rounded-[40px] relative shadow-lg mb-6 md:mb-8 md:mt-8">
-                        <img
-                           src={pkg.image}
-                           className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2000ms]"
-                           alt={pkg.title}
-                        />
-                     </div>
+            {/* --- Filters Panel --- */}
+            <div className="bg-[#fdfcfb] border border-black/5 rounded-[24px] md:rounded-[32px] p-5 md:p-6 mb-12 flex flex-col lg:flex-row gap-4 items-center justify-between w-full shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]">
+               {/* Search Input */}
+               <div className="relative w-full lg:w-[35%] flex items-center bg-[#f5f2ee] rounded-[18px] md:rounded-[22px] px-5 py-3 md:py-3.5">
+                  <Search className="w-4 h-4 text-black/30 mr-3 flex-shrink-0" />
+                  <input
+                     type="text"
+                     placeholder="Search plots, locations..."
+                     value={searchQuery}
+                     onChange={(e) => setSearchQuery(e.target.value)}
+                     className="w-full bg-transparent border-0 text-[13px] font-semibold text-black placeholder-black/30 focus:ring-0 outline-none p-0"
+                  />
+                  {searchQuery && (
+                     <button onClick={() => setSearchQuery("")} className="text-black/30 hover:text-black/60 text-[11px] font-bold uppercase ml-2">Clear</button>
+                  )}
+               </div>
 
-                     {/* --- Information Block --- */}
-                     <div className="order-2 md:order-1 flex flex-col">
-                        <div className="flex justify-between items-center mb-4 border-b border-black/5 pb-4">
-                           <div className="flex items-center gap-3">
-                              <MapPin className="w-4 h-4 text-primary" />
-                              <span className="text-[11px] font-black uppercase tracking-widest text-black/40">{pkg.location}</span>
-                           </div>
+               {/* Dropdown Filters Group */}
+               <div className="flex flex-wrap lg:flex-nowrap gap-3 w-full lg:w-[65%] lg:justify-end">
+                  {/* Location Filter */}
+                  <div className="relative w-[48%] sm:w-auto min-w-[130px] flex-grow sm:flex-grow-0">
+                     <select
+                        value={selectedLocation}
+                        onChange={(e) => setSelectedLocation(e.target.value)}
+                        className="w-full bg-[#f5f2ee] border-0 rounded-[18px] md:rounded-[22px] px-5 py-3 md:py-3.5 text-[11px] md:text-[12px] font-extrabold uppercase tracking-wide text-black/70 outline-none cursor-pointer appearance-none pr-8"
+                        style={{ backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E")`, backgroundPosition: 'right 0.75rem center', backgroundSize: '1.5em 1.5em', backgroundRepeat: 'no-repeat' }}
+                     >
+                        <option value="All">All Locations</option>
+                        <option value="Betma">Betma Bypass</option>
+                        <option value="Pithampur">Pithampur</option>
+                     </select>
+                  </div>
 
-                           <span className="text-[11px] font-black uppercase tracking-widest text-black/40">{pkg.duration}</span>
-                        </div>
+                  {/* Property Type Filter */}
+                  <div className="relative w-[48%] sm:w-auto min-w-[130px] flex-grow sm:flex-grow-0">
+                     <select
+                        value={selectedType}
+                        onChange={(e) => setSelectedType(e.target.value)}
+                        className="w-full bg-[#f5f2ee] border-0 rounded-[18px] md:rounded-[22px] px-5 py-3 md:py-3.5 text-[11px] md:text-[12px] font-extrabold uppercase tracking-wide text-black/70 outline-none cursor-pointer appearance-none pr-8"
+                        style={{ backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E")`, backgroundPosition: 'right 0.75rem center', backgroundSize: '1.5em 1.5em', backgroundRepeat: 'no-repeat' }}
+                     >
+                        <option value="All">All Types</option>
+                        <option value="Residential">Residential</option>
+                        <option value="Commercial">Commercial</option>
+                     </select>
+                  </div>
 
-                        <h3 className="text-[26px] md:text-[42px] lg:text-[54px] font-black uppercase tracking-tighter text-black leading-tight mb-4 md:mb-6 group-hover:text-primary transition-colors">
-                           {pkg.title.includes(':') ? pkg.title.split(':')[1].trim() : pkg.title}
-                        </h3>
-
-                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 sm:gap-0">
-                           <div className="flex flex-col">
-                              <span className="text-[10px] font-bold text-black/20 uppercase tracking-widest leading-none mb-1">Starting Price</span>
-                              <span className="text-[24px] md:text-[32px] lg:text-[38px] font-black text-black leading-none">{pkg.price}</span>
-                           </div>
-                           <button className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-black text-white rounded-full font-black uppercase text-[10px] lg:text-[11px] tracking-widest flex items-center justify-center gap-3 hover:bg-primary hover:text-black transition-all shadow-xl">
-                              VIEW PROJECT <ArrowUpRight className="w-4 h-4" />
-                           </button>
-                        </div>
-                     </div>
-                  </motion.div>
-               ))}
-
-               {/* Spacer at the end for scroll padding */}
-               <div className="hidden md:block min-w-[10vw]" />
+                  {/* Budget Filter */}
+                  <div className="relative w-full sm:w-auto min-w-[140px] flex-grow sm:flex-grow-0">
+                     <select
+                        value={selectedBudget}
+                        onChange={(e) => setSelectedBudget(e.target.value)}
+                        className="w-full bg-[#f5f2ee] border-0 rounded-[18px] md:rounded-[22px] px-5 py-3 md:py-3.5 text-[11px] md:text-[12px] font-extrabold uppercase tracking-wide text-black/70 outline-none cursor-pointer appearance-none pr-8"
+                        style={{ backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E")`, backgroundPosition: 'right 0.75rem center', backgroundSize: '1.5em 1.5em', backgroundRepeat: 'no-repeat' }}
+                     >
+                        <option value="All">All Budgets</option>
+                        <option value="under-10">Under ₹10 Lakhs</option>
+                        <option value="10-20">₹10 Lakhs - ₹20 Lakhs</option>
+                        <option value="above-20">Above ₹20 Lakhs</option>
+                     </select>
+                  </div>
+               </div>
             </div>
 
-         </div>
-
-         {/* --- Detail Overlay remains simple and stable --- */}
-         <AnimatePresence>
-            {selectedPackage && (
-               <motion.div
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 50 }}
-                  className="fixed inset-0 z-[500] bg-white flex flex-col h-screen overflow-hidden font-sans"
+            {/* --- Phase 2: Card Canvas / Filter Results --- */}
+            {displayPackages.length === 0 ? (
+               <div className="w-full text-center py-20 bg-[#fbfaf9] rounded-[32px] md:rounded-[48px] border border-black/5 flex flex-col items-center justify-center">
+                  <p className="text-[16px] font-bold text-black/40 uppercase tracking-wider">No matching projects found</p>
+                  <button 
+                     onClick={() => {
+                        setSearchQuery("");
+                        setSelectedType("All");
+                        setSelectedLocation("All");
+                        setSelectedBudget("All");
+                     }}
+                     className="mt-4 text-[11px] font-black uppercase tracking-widest text-[#968370] hover:text-black transition-colors"
+                  >
+                     Reset Filters
+                  </button>
+               </div>
+            ) : (
+               <div
+                  ref={scrollContainerRef}
+                  className="flex-grow flex flex-col md:flex-row gap-12 md:gap-6 md:overflow-x-auto no-scrollbar snap-y md:snap-x snap-mandatory pb-10"
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                >
-                  <div className="flex justify-between items-center px-6 md:px-12 py-8 bg-white border-b border-black/5">
-                     <span className="text-[14px] font-black uppercase tracking-widest text-black/40">{selectedPackage.title}</span>
-                     <button onClick={() => setSelectedPackage(null)} className="p-3 bg-neutral-100 rounded-full hover:bg-black hover:text-white transition-all shadow-sm">
-                        <X className="w-6 h-6" />
-                     </button>
-                  </div>
-                  <div className="flex-grow overflow-y-auto">
-                     <div className="max-w-[1400px] mx-auto py-12 md:py-24 px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-                        <div className="rounded-[24px] md:rounded-[48px] overflow-hidden shadow-2xl h-[300px] sm:h-[450px] lg:h-auto">
-                           <img src={selectedPackage.image} className="w-full h-full object-cover" alt={`${selectedPackage.title} Detail View`} />
-                        </div>
-                        <div className="flex flex-col justify-center">
-                           <h2 className="text-[32px] md:text-[54px] lg:text-[72px] font-black text-black uppercase leading-[0.85] tracking-tighter mb-8">{selectedPackage.title}</h2>
-                           <p className="text-[16px] md:text-[18px] text-black/60 font-medium leading-relaxed mb-12">{selectedPackage.description}</p>
+                  {displayPackages.map((pkg: any, index) => (
+                     <motion.div
+                        key={pkg.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.05 }}
+                        className="w-full md:min-w-full snap-center flex flex-col group cursor-pointer bg-[#fdfcfb] md:bg-transparent p-5 md:p-0 rounded-[35px] md:rounded-0 border border-black/5 md:border-0"
+                        onClick={() => router.push(`/packages/${pkg.id}`)}
+                     >
+                        {/* --- Image Block --- */}
+                        <div className="order-1 md:order-2 h-[250px] sm:h-[300px] md:h-[300px] lg:h-[380px] w-full overflow-hidden rounded-[24px] md:rounded-[40px] relative shadow-lg mb-6 md:mb-8 md:mt-8">
+                           <img
+                              src={pkg.image}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-all duration-[1200ms]"
+                              alt={pkg.title}
+                           />
+                           
+                           {/* Badges Overlays */}
+                           <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3.5 py-1.5 rounded-full shadow-md z-10">
+                              <span className="text-[9px] font-black uppercase tracking-wider text-black">{pkg.type} Plot</span>
+                           </div>
 
-                           <div className="p-8 md:p-10 bg-[#f8f6f4] rounded-[32px] md:rounded-[48px] flex flex-col sm:flex-row items-center justify-between gap-6 md:gap-8 border border-black/5 shadow-inner">
-                              <div className="text-center sm:text-left">
-                                 <span className="text-[10px] md:text-[11px] font-bold text-black/30 uppercase tracking-widest block mb-1">Starting Price</span>
-                                 <span className="text-[28px] md:text-[32px] font-black text-black">{selectedPackage.price}</span>
+                           <div className={`absolute top-4 right-4 backdrop-blur-sm px-3.5 py-1.5 rounded-full shadow-md z-10 ${
+                              pkg.status === "Available" ? "bg-green-600/90 text-white" :
+                              pkg.status === "Sold" ? "bg-red-600/90 text-white" :
+                              "bg-amber-500/95 text-white"
+                           }`}>
+                              <span className="text-[9px] font-black uppercase tracking-wider">{pkg.status}</span>
+                           </div>
+                        </div>
+
+                        {/* --- Information Block --- */}
+                        <div className="order-2 md:order-1 flex flex-col">
+                           <div className="flex justify-between items-center mb-4 border-b border-black/5 pb-4">
+                              <div className="flex items-center gap-3">
+                                 <MapPin className="w-4 h-4 text-primary" />
+                                 <span className="text-[11px] font-black uppercase tracking-widest text-black/40">{pkg.location}</span>
                               </div>
-                              <button
-                                 onClick={() => window.open(`https://wa.me/919009250061?text=Hi Rudraksha Properties! I'm interested in ${selectedPackage.title}.`, '_blank')}
-                                 className="w-full sm:w-auto px-10 py-5 bg-black text-white rounded-full font-black text-[11px] md:text-[12px] uppercase tracking-widest hover:bg-primary transition-all shadow-xl flex items-center justify-center gap-3"
-                              >
-                                 Enquire via WhatsApp <ArrowRight className="w-4 h-4" />
+                              <span className="text-[11px] font-black uppercase tracking-widest text-black/40">{pkg.duration}</span>
+                           </div>
+
+                           <h3 className="text-[26px] md:text-[42px] lg:text-[54px] font-black uppercase tracking-tighter text-black leading-tight mb-4 md:mb-6 group-hover:text-primary transition-colors">
+                              {pkg.title.includes(':') ? pkg.title.split(':')[1].trim() : pkg.title}
+                           </h3>
+
+                           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 sm:gap-0">
+                              <div className="flex gap-8">
+                                 <div className="flex flex-col">
+                                    <span className="text-[10px] font-bold text-black/20 uppercase tracking-widest leading-none mb-1">Starting Price</span>
+                                    <span className="text-[24px] md:text-[32px] lg:text-[38px] font-black text-black leading-none">{pkg.price}</span>
+                                 </div>
+                                 <div className="flex flex-col border-l border-black/10 pl-8">
+                                    <span className="text-[10px] font-bold text-black/20 uppercase tracking-widest leading-none mb-1">Plot Size</span>
+                                    <span className="text-[22px] md:text-[28px] font-black text-black leading-none">{pkg.size}</span>
+                                 </div>
+                              </div>
+                              <button className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-black text-white rounded-full font-black uppercase text-[10px] lg:text-[11px] tracking-widest flex items-center justify-center gap-3 hover:bg-primary hover:text-black transition-all shadow-xl">
+                                 VIEW PROJECT <ArrowUpRight className="w-4 h-4" />
                               </button>
                            </div>
                         </div>
-                     </div>
-                  </div>
-               </motion.div>
+                     </motion.div>
+                  ))}
+
+                  {/* Spacer at the end for scroll padding */}
+                  <div className="hidden md:block min-w-[10vw]" />
+               </div>
             )}
-         </AnimatePresence>
+
+         </div>
 
          <style jsx global>{`
         .no-scrollbar::-webkit-scrollbar {

@@ -33,12 +33,12 @@ export default function Navbar({ isSolid = false }: { isSolid?: boolean }) {
   }, []);
 
   const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Properties", href: "#services" },
-    { name: "Projects", href: "#packages" },
+    { name: "About", href: "/#about" },
+    { name: "Properties", href: "/#services" },
+    { name: "Projects", href: "/#packages" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Why Us", href: "#advantage" },
-    { name: "Contact", href: "#contact" },
+    { name: "Why Us", href: "/#advantage" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -60,22 +60,33 @@ export default function Navbar({ isSolid = false }: { isSolid?: boolean }) {
             : "max-w-7xl px-4 py-4 bg-transparent"
         )}
       >
-        <Link href="/" className="transition-all duration-500 flex items-center gap-2">
-          {/* Logo text-based — replace with <Image> once logo is received */}
+        <Link href="/" className="transition-all duration-500 flex items-center gap-2.5">
+          {/* LOGO PLACEHOLDER — Replace this block with <Image src="/logo.png" ... /> once the official logo is provided */}
           <div className={cn(
-            "flex items-center gap-2 transition-all duration-500"
+            "relative w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center overflow-hidden transition-all duration-500 shrink-0",
+            effectiveScrolled ? "bg-black ring-1 ring-black/10" : "bg-white/95 backdrop-blur-sm"
           )}>
-            <div className={cn(
-              "w-8 h-8 rounded-full flex items-center justify-center font-black text-sm transition-all",
-              effectiveScrolled ? "bg-black text-white" : "bg-white text-black"
+            {/* Placeholder monogram — swap for actual logo image */}
+            <span className={cn(
+              "font-headline font-black text-[18px] md:text-[20px] tracking-tighter transition-colors duration-500",
+              effectiveScrolled ? "text-white" : "text-black"
             )}>
               R
-            </div>
+            </span>
+            {/* TODO: Replace with <Image src="/logo.png" alt="Rudraksha Properties" fill className="object-contain" /> */}
+          </div>
+          <div className="flex flex-col leading-none">
             <span className={cn(
-              "text-[16px] md:text-[18px] font-headline tracking-tighter transition-colors duration-500 leading-none font-black",
+              "text-[15px] md:text-[17px] font-headline tracking-tighter transition-colors duration-500 font-black",
               effectiveScrolled ? "text-foreground" : "text-white"
             )}>
               Rudraksha Properties
+            </span>
+            <span className={cn(
+              "text-[8px] md:text-[9px] font-bold uppercase tracking-[0.25em] transition-colors duration-500 mt-0.5",
+              effectiveScrolled ? "text-primary" : "text-white/70"
+            )}>
+              From Zero To Peak
             </span>
           </div>
         </Link>
@@ -96,14 +107,14 @@ export default function Navbar({ isSolid = false }: { isSolid?: boolean }) {
         </nav>
 
         <div className="flex items-center gap-6">
-          <a href="#contact" className={cn(
+          <Link href="/contact" className={cn(
             "hidden md:block px-6 py-2.5 rounded-full font-bold text-[10px] uppercase tracking-widest transition-all duration-300",
             effectiveScrolled
               ? "bg-foreground text-white hover:bg-primary hover:text-foreground shadow-md"
               : "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-foreground"
           )}>
             Book Site Visit
-          </a>
+          </Link>
 
           <button
             className={cn(
@@ -136,13 +147,13 @@ export default function Navbar({ isSolid = false }: { isSolid?: boolean }) {
               {link.name}
             </Link>
           ))}
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             onClick={() => setMobileMenuOpen(false)}
             className="mt-4 bg-black text-white px-10 py-4 rounded-full font-black uppercase tracking-widest text-[11px] hover:bg-primary hover:text-black transition-all"
           >
             Book Site Visit
-          </a>
+          </Link>
         </div>
       )}
     </header>

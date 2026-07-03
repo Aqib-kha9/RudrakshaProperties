@@ -3,8 +3,8 @@ import Footer from "@/components/layout/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Orovista Holidays",
-  description: "Read the Privacy Policy of Orovista Holidays to understand how we protect your personal data and respect your privacy.",
+  title: "Privacy Policy | Rudraksha Properties & Construction",
+  description: "Read the Privacy Policy of Rudraksha Properties & Construction to understand how we protect your personal data and respect your privacy.",
   robots: {
     index: true,
     follow: true,
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
         <div className="space-y-8 text-[14px] md:text-[16px] text-black/70 leading-relaxed font-medium">
           <section>
             <h2 className="text-2xl font-black uppercase tracking-tight text-black mb-4">1. Introduction</h2>
-            <p>Welcome to Orovista Holidays. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
+            <p>Welcome to Rudraksha Properties & Construction. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
           </section>
 
           <section>
@@ -43,7 +43,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-black uppercase tracking-tight text-black mb-4">3. How We Use Your Personal Data</h2>
             <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
             <ul className="list-disc pl-5 mt-4 space-y-2">
-              <li>Where we need to perform the contract we are about to enter into or have entered into with you (e.g., booking your travel arrangements).</li>
+              <li>Where we need to perform the contract we are about to enter into or have entered into with you (e.g., managing your property transactions).</li>
               <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
               <li>Where we need to comply with a legal obligation.</li>
             </ul>
@@ -58,9 +58,9 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-black uppercase tracking-tight text-black mb-4">5. Contact Us</h2>
             <p>If you have any questions about this privacy policy or our privacy practices, please contact us in the following ways:</p>
             <div className="mt-4 p-6 bg-[#eeeae7] rounded-2xl">
-              <p className="mb-2"><strong>Email address:</strong> Orovistaholidays@gmail.com</p>
-              <p className="mb-2"><strong>Phone number:</strong> +91 96190 99699</p>
-              <p><strong>Postal address:</strong> 107, First Floor, Crescent Business Park, Off Telephone Exchange Lane, Behind Fairfield Hotel, Saki Naka, Mumbai, Maharashtra 400072</p>
+              <p className="mb-2"><strong>Email address:</strong> rudrakshproperties7079@gmail.com</p>
+              <p className="mb-2"><strong>Phone number:</strong> +91 9009250061</p>
+              <p><strong>Postal address:</strong> Hortus conclusus, JHQR+4F2, Pithampur Industrial Area, Vijay Nagar Colony, Madhya Pradesh 454774</p>
             </div>
           </section>
         </div>

@@ -8,7 +8,7 @@ export function About() {
     <section id="about" className="w-full bg-white pb-12 md:pb-32 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-3 md:px-3 lg:px-3">
 
-        {/* Row 1: The Massive "ABOUT" Title */}
+        {/* Row 1: The "ABOUT" Title (larger) */}
         <div className="w-full mb-[-10px] md:mb-[-20px] lg:mb-[-30px]">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -47,8 +47,13 @@ export function About() {
                 Premium Real Estate & <br /> Construction Firm, Indore
               </p>
               <p className="text-[14px] md:text-[16px] text-black/60 font-medium leading-relaxed">
-                Rudraksha Properties & Construction is a highly-rated real estate firm based in Indore, MP. We specialize in property investment, residential plot development, and turnkey construction — maintaining a 4.8★ customer rating on Justdial.
+                Rudraksha Properties & Construction is a highly-rated real estate firm based in Indore, MP. With 12 years of excellence, we specialize in property investment, residential plot development, and turnkey construction — maintaining a 4.8★ customer rating on Justdial.
               </p>
+              <div className="pt-2 border-t border-black/10">
+                <p className="text-[10px] md:text-[11px] font-black text-primary uppercase tracking-[0.2em] mb-1">Our Tagline</p>
+                <p className="text-[16px] md:text-[18px] font-black text-black tracking-tight">From Zero To Peak</p>
+                <p className="text-[14px] md:text-[16px] font-serif italic text-black/50">शून्य से शिखर तक</p>
+              </div>
             </motion.div>
           </div>
 
@@ -67,10 +72,10 @@ export function About() {
                 fill
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-500" />
               <div className="absolute bottom-6 left-8 md:bottom-10 md:left-12">
                 <p className="text-white text-[10px] md:text-[12px] font-black uppercase tracking-[0.3em] drop-shadow-md">T&CP Approved</p>
-                <h4 className="text-white text-[20px] md:text-[28px] font-bold tracking-tighter drop-shadow-md">Rudraksh Greens, Indore</h4>
+                <h4 className="text-white text-[20px] md:text-[28px] font-bold tracking-tighter drop-shadow-md">Rudraksha City, Betma Bypass, Indore, Madhya Pradesh</h4>
               </div>
             </motion.div>
           </div>
@@ -91,7 +96,7 @@ export function About() {
                   fill
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-500" />
                 <div className="absolute bottom-5 left-6">
                   <p className="text-white text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] drop-shadow-md">Plot Starting</p>
                   <h4 className="text-white text-[16px] md:text-[20px] font-bold tracking-tighter drop-shadow-md">₹6 Lakhs, Pithampur</h4>
@@ -100,10 +105,10 @@ export function About() {
 
               <div className="space-y-2">
                 <h3 className="text-[20px] md:text-[10px] lg:text-[20px] font-extrabold tracking-tight text-black leading-none">
-                  Our Mission
+                  Our Mission & Vision
                 </h3>
                 <p className="text-[14px] md:text-[15px] text-black/60 font-medium leading-relaxed">
-                  At Rudraksha Properties, our mission is to deliver transparent, legally verified, and high-quality properties to every client. From residential plots to commercial developments, we ensure every investment is backed by trust and integrity.
+                  At Rudraksha Properties, our mission is to deliver transparent, legally verified, and high-quality properties to every client. From residential plots to commercial developments, we ensure every investment is backed by trust and integrity. Our vision is to be Madhya Pradesh's most trusted real estate brand — a journey of 12 years, From Zero To Peak.
                 </p>
               </div>
             </motion.div>

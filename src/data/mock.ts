@@ -62,31 +62,31 @@ export const TESTIMONIALS = [
 ];
 
 export const LEGACY_STATS = [
-  { 
-    label: "Customer Satisfaction", 
+  {
+    label: "Customer Satisfaction",
     value: "100%",
-    description: "Customer satisfaction on our platform boosts travel, builds loyalty, and promotes sharing."
+    description: "Our commitment to transparency and quality has earned us a 4.8★ rating on Justdial and the trust of 5000+ satisfied clients."
   },
-  { 
-    label: "Years of Experience", 
-    value: "20+",
-    description: "Our deep expertise ensures seamless travel planning, fosters trust, and encourages sharing."
+  {
+    label: "Years of Excellence",
+    value: "12+",
+    description: "From Zero To Peak — 12 years of delivering T&CP approved plots and turnkey construction across Indore, Betma Bypass & Pithampur."
   },
-  { 
-    label: "Popular Destinations", 
-    value: "160+",
-    description: "Access to exclusive locations globally enhances travel experiences and creates lifelong memories."
+  {
+    label: "Happy Clients",
+    value: "5000+",
+    description: "Families and investors who trusted Rudraksha Properties for their dream property and construction needs across Madhya Pradesh."
   },
 ];
 
 export const BLOG_POSTS = [
   {
     id: 1,
-    title: "Why Indore's Super Corridor is the Best Investment Zone in MP",
+    title: "Rudraksha City, Betma Bypass: Indore's Rising Investment Hub",
     category: "Investment Tips",
-    description: "Indore's Super Corridor has emerged as the fastest-growing real estate corridor in Madhya Pradesh. Here's why investors are flocking to this premium zone.",
+    description: "Rudraksha City at Betma Bypass is emerging as one of Indore's most promising residential plot destinations. T&CP approved plots with excellent connectivity and strong appreciation potential.",
     image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200",
-    slug: "super-corridor-investment",
+    slug: "rudraksha-city-betma-investment",
     isFeatured: true,
   },
   {
@@ -100,11 +100,11 @@ export const BLOG_POSTS = [
   },
   {
     id: 3,
-    title: "Pithampur: MP's Hidden Real Estate Gem Starting at ₹6 Lakhs",
+    title: "Sagore Kuti & Pithampur: MP's Hidden Real Estate Gems Starting at ₹6 Lakhs",
     category: "Market Analysis",
     image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=1200",
-    description: "Pithampur's industrial growth is driving residential demand. Plots near Betma Road and Sagore Kuti offer exceptional value for budget-conscious buyers.",
-    slug: "pithampur-real-estate",
+    description: "Pithampur's industrial growth is driving residential demand. Plots near Sagore Kuti and Betma Road offer exceptional value for budget-conscious buyers with easy EMI options.",
+    slug: "sagore-kuti-pithampur-real-estate",
     isFeatured: false,
   },
 ];
