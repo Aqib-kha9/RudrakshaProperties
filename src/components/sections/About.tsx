@@ -8,8 +8,8 @@ export function About() {
     <section id="about" className="w-full bg-white pb-12 md:pb-32 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-3 md:px-3 lg:px-3">
 
-        {/* Row 1: The "ABOUT" Title (larger) */}
-        <div className="w-full mb-[-10px] md:mb-[-20px] lg:mb-[-30px]">
+        {/* Row 1: The "ABOUT" Title & Tagline (Opposite Sides) */}
+        <div className="w-full flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-4 md:mb-[-10px] lg:mb-[-20px]">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -19,6 +19,18 @@ export function About() {
           >
             About
           </motion.h2>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col items-start md:items-end text-left md:text-right md:pb-4 z-20 bg-[#eeeae7]/60 md:bg-transparent p-5 md:p-0 rounded-[24px] md:rounded-none w-full md:w-auto border border-black/5 md:border-none shadow-sm md:shadow-none"
+          >
+            <span className="text-[9px] md:text-[12px] font-black text-[#968370] uppercase tracking-[0.25em] mb-1">Our Tagline</span>
+            <span className="text-[18px] md:text-[32px] font-black text-black tracking-tight leading-none uppercase mb-1.5">From Zero To Peak</span>
+            <span className="text-[14px] md:text-[22px] font-serif italic text-black/40">शून्य से शिखर तक</span>
+          </motion.div>
         </div>
 
         {/* Row 2: The Modular Layout */}
@@ -49,11 +61,6 @@ export function About() {
               <p className="text-[14px] md:text-[16px] text-black/60 font-medium leading-relaxed">
                 Rudraksha Properties & Construction is a highly-rated real estate firm based in Indore, MP. With 12 years of excellence, we specialize in property investment, residential plot development, and turnkey construction — maintaining a 4.8★ customer rating on Justdial.
               </p>
-              <div className="pt-2 border-t border-black/10">
-                <p className="text-[10px] md:text-[11px] font-black text-primary uppercase tracking-[0.2em] mb-1">Our Tagline</p>
-                <p className="text-[16px] md:text-[18px] font-black text-black tracking-tight">From Zero To Peak</p>
-                <p className="text-[14px] md:text-[16px] font-serif italic text-black/50">शून्य से शिखर तक</p>
-              </div>
             </motion.div>
           </div>
 
