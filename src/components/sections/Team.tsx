@@ -5,6 +5,23 @@ import { useState } from 'react';
 
 export function Team() {
   const [activePhoto, setActivePhoto] = useState<string | null>(null);
+  const [lang, setLang] = useState<'en' | 'hi'>('en');
+
+  const ceoContent = {
+    en: {
+      journeyLabel: "Founder Journey",
+      journeyTitle: "12+ Years of Real Estate Excellence",
+      journeyDesc: "A visionary entrepreneur who built Rudraksha Properties & Construction from the ground up. With over 12 successful years, Dharmendra Choudhary has transformed countless dreams of property ownership into reality. His journey — From Zero To Peak — is a testament to unwavering commitment, transparency, and client-first values.",
+      shortQuote: "As a visionary of real estate, our founder Dharmendra Choudhary oversees the curation of our firm's bespoke property portfolios."
+    },
+    hi: {
+      journeyLabel: "फाउंडर का सफर",
+      journeyTitle: "Real Estate में 12+ सालों का शानदार अनुभव",
+      journeyDesc: "एक विज़नरी फाउंडर जिन्होंने रुद्राक्ष प्रॉपर्टीज एंड कंस्ट्रक्शन को बिल्कुल जीरो से शुरू करके खड़ा किया है। 12 से ज़्यादा सफल सालों के साथ, धर्मेंद्र चौधरी ने लोगों के अपने घर और ज़मीन के सपनों को सच किया है। उनका यह सफर — Zero To Peak — उनके पक्के कमिटमेंट, ट्रांसपेरेंसी और कस्टमर-फर्स्ट अप्रोच का सबसे बड़ा उदाहरण है।",
+      shortQuote: "रियल एस्टेट के विज़नरी के रूप में, हमारे फाउंडर धर्मेंद्र चौधरी फर्म के बेहतरीन प्रॉपर्टी पोर्टफोलियो की देखरेख खुद करते हैं।"
+    }
+  };
+
   return (
     <section id="team" className="w-full bg-white overflow-hidden font-sans pt-6 pb-20 md:py-0">
       <div className="max-w-[1400px] mx-auto px-4 md:px-3">
@@ -54,7 +71,20 @@ export function Team() {
                      +91 90092 50061
                   </a>
                 </div>
-                <p className="text-[14px] leading-relaxed text-black/50 font-medium max-w-[320px] mx-auto italic">As a visionary of real estate, our founder Dharmendra Choudhary oversees the curation of our firm&apos;s bespoke property portfolios.</p>
+                <div className="min-h-[60px] flex items-center justify-center">
+                  <AnimatePresence mode="wait">
+                    <motion.p
+                      key={lang}
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -5 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-[14px] leading-relaxed text-black/50 font-medium max-w-[320px] mx-auto italic"
+                    >
+                      {ceoContent[lang].shortQuote}
+                    </motion.p>
+                  </AnimatePresence>
+                </div>
                 <div className="absolute bottom-0 -right-[25px] w-[25px] h-[25px] bg-white"><div className="w-full h-full bg-[#eeeae7] rounded-bl-[25px]"></div></div>
                 <div className="absolute bottom-0 -left-[25px] w-[25px] h-[25px] bg-white"><div className="w-full h-full bg-[#eeeae7] rounded-br-[25px]"></div></div>
               </div>
@@ -65,6 +95,22 @@ export function Team() {
 
           {/* Right Principal - Founder Bio Block */}
           <div className="relative z-10 w-[32%] flex flex-col -mr-10 mb-20 self-center">
+            {/* Language Switcher */}
+            <div className="flex gap-1 items-center bg-[#eeeae7]/80 backdrop-blur-sm p-1 rounded-full w-fit mb-4 border border-black/5 self-end z-20">
+              <button 
+                onClick={() => setLang("en")}
+                className={`px-3 py-1 rounded-full text-[10px] font-black tracking-wider transition-all duration-300 ${lang === 'en' ? 'bg-[#968370] text-white shadow-sm' : 'text-black/60 hover:text-black'}`}
+              >
+                EN
+              </button>
+              <button 
+                onClick={() => setLang("hi")}
+                className={`px-3 py-1 rounded-full text-[10px] font-black tracking-wider transition-all duration-300 ${lang === 'hi' ? 'bg-[#968370] text-white shadow-sm' : 'text-black/60 hover:text-black'}`}
+              >
+                हिंदी
+              </button>
+            </div>
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -72,13 +118,26 @@ export function Team() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-end text-right"
             >
-              <span className="text-[10px] font-bold text-black/30 tracking-[0.4em] uppercase mb-4">Founder Journey</span>
-              <h3 className="text-[26px] font-serif italic text-black leading-tight max-w-[320px] mb-4">
-                12+ Years of Real Estate Excellence
-              </h3>
-              <p className="text-[14px] text-black/75 font-medium leading-relaxed max-w-[320px]">
-                A visionary entrepreneur who built Rudraksha Properties & Construction from the ground up. With over 12 successful years, Dharmendra Choudhary has transformed countless dreams of property ownership into reality. His journey — From Zero To Peak — is a testament to unwavering commitment, transparency, and client-first values.
-              </p>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={lang}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex flex-col items-end text-right"
+                >
+                  <span className="text-[10px] font-bold text-black/30 tracking-[0.4em] uppercase mb-4">
+                    {ceoContent[lang].journeyLabel}
+                  </span>
+                  <h3 className="text-[26px] font-serif italic text-black leading-tight max-w-[320px] mb-4">
+                    {ceoContent[lang].journeyTitle}
+                  </h3>
+                  <p className="text-[14px] text-black/75 font-medium leading-relaxed max-w-[320px]">
+                    {ceoContent[lang].journeyDesc}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
             </motion.div>
           </div>
         </div>
@@ -119,12 +178,38 @@ export function Team() {
 
            {/* Mobile Philosophy */}
            <div className="px-2 mt-6">
-              <h4 className="text-[18px] font-serif italic text-black leading-tight mb-2 border-l-2 border-[#eeeae7] pl-4">
-                12+ Years of Real Estate Excellence
-              </h4>
-              <p className="text-[13px] leading-relaxed text-black/60 font-medium border-l-2 border-[#eeeae7] pl-4 mt-2">
-                A visionary entrepreneur who built Rudraksha Properties & Construction from the ground up. With over 12 successful years, Dharmendra Choudhary has transformed countless dreams of property ownership into reality. His journey — From Zero To Peak — is a testament to unwavering commitment, transparency, and client-first values.
-              </p>
+              {/* Language Switcher */}
+              <div className="flex gap-1 items-center bg-[#eeeae7]/80 p-1 rounded-full w-fit mb-4 border border-black/5">
+                <button 
+                  onClick={() => setLang("en")}
+                  className={`px-3 py-1 rounded-full text-[10px] font-black tracking-wider transition-all duration-300 ${lang === 'en' ? 'bg-[#968370] text-white shadow-sm' : 'text-black/60 hover:text-black'}`}
+                >
+                  EN
+                </button>
+                <button 
+                  onClick={() => setLang("hi")}
+                  className={`px-3 py-1 rounded-full text-[10px] font-black tracking-wider transition-all duration-300 ${lang === 'hi' ? 'bg-[#968370] text-white shadow-sm' : 'text-black/60 hover:text-black'}`}
+                >
+                  हिंदी
+                </button>
+              </div>
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={lang}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h4 className="text-[18px] font-serif italic text-black leading-tight mb-2 border-l-2 border-[#eeeae7] pl-4">
+                    {ceoContent[lang].journeyTitle}
+                  </h4>
+                  <p className="text-[13px] leading-relaxed text-black/60 font-medium border-l-2 border-[#eeeae7] pl-4 mt-2">
+                    {ceoContent[lang].journeyDesc}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
            </div>
         </div>
 
