@@ -152,10 +152,10 @@ export function Team() {
                    {/* Left Side: Image */}
                    <div 
                       className="relative w-full md:w-[40%] min-h-[320px] md:min-h-full overflow-hidden cursor-zoom-in"
-                      onClick={() => setActivePhoto("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600")}
+                      onClick={() => setActivePhoto("/assets/sales_head.jpeg")}
                    >
                       <img
-                         src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600"
+                         src="/assets/sales_head.jpeg"
                          alt="Kalyan Singh Makwana"
                          className="w-full h-full object-cover object-center transition-all duration-1000 group-hover:scale-105 absolute inset-0"
                       />
@@ -176,9 +176,19 @@ export function Team() {
                          <h3 className="text-[36px] md:text-[44px] font-serif italic text-black leading-none mb-2">Kalyan Singh Makwana</h3>
                          <p className="text-[13px] font-extrabold text-[#968370] tracking-[0.15em] uppercase mb-5">Sales Head</p>
                          
-                         <p className="text-[15px] md:text-[16px] leading-relaxed text-black/70 font-medium max-w-[580px]">
+                         <p className="text-[15px] md:text-[16px] leading-relaxed text-black/70 font-medium max-w-[580px] mb-6">
                             Leads our sales strategies and property consultations, matching clients with their ideal real estate opportunities. With deep market expertise, Kalyan drives growth while ensuring our clients receive top-tier advisory.
                          </p>
+
+                         <a 
+                            href="tel:+919977608754" 
+                            className="inline-flex items-center gap-1.5 text-[14px] font-extrabold text-[#968370] hover:text-black transition-colors"
+                         >
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                               <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            +91 99776 08754
+                         </a>
                       </div>
                    </div>
                 </motion.div>
@@ -265,17 +275,17 @@ export function Team() {
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                {[
-                  { name: "Pankaj Solanki", label: "01. Channel Partner", image: "/channelpartners/Pankaj_solanki_1.jpeg", position: "center" },
-                  { name: "Vasudev Choudhary", label: "02. Channel Partner", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400", position: "center" },
-                  { name: "Lokendra Singh Panwar", label: "03. Channel Partner", image: "/channelpartners/Lokendra_Panwar_3.jpeg" },
-                  { name: "Gokul Choudhary", label: "04. Channel Partner", image: "/channelpartners/Gokul_choudhary_4.jpeg" },
-                  { name: "Dinesh Minawa", label: "05. Channel Partner", image: "/channelpartners/Dinesh_minawa_5.jpeg", position: "center 15%" },
-                  { name: "Arjun Verma", label: "06. Channel Partner", image: "/channelpartners/Arjun_verma_6.jpeg", position: "center 30%" },
-                  { name: "Gabbar Singh Rana", label: "07. Channel Partner", image: "/channelpartners/Gabbar_Singh_Rana_7.jpeg" },
-                  { name: "Mahesh Deshwali", label: "08. Channel Partner", image: "/channelpartners/Mahesh_deshwali_8.jpeg", position: "center 20%" },
-                  { name: "Shekhar Patel", label: "09. Channel Partner", image: "/channelpartners/Shekhar_patel_9.jpeg" },
-                  { name: "Kavita Selar", label: "10. Channel Partner", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400", position: "center" },
-                  { name: "Pradeep Khanve", label: "11. Channel Partner", image: "/channelpartners/pradeep_khanve_11.jpeg", position: "center 15%" }
+                  { name: "Pankaj Solanki", label: "01. Channel Partner", phone: "8349912923", image: "/channelpartners/Pankaj_solanki_1.jpeg", position: "center" },
+                  { name: "Vasudev Choudhary", label: "02. Channel Partner", phone: "6265129596", image: "/channelpartners/Vasu_dev_2.jpeg", position: "center" },
+                  { name: "Lokendra Singh Panwar", label: "03. Channel Partner", phone: "9977990273", image: "/channelpartners/Lokendra_Panwar_3.jpeg" },
+                  { name: "Gokul Choudhary", label: "04. Channel Partner", phone: "8319645856", image: "/channelpartners/Gokul_choudhary_4.jpeg" },
+                  { name: "Dinesh Minawa", label: "05. Channel Partner", phone: "8234823453", image: "/channelpartners/Dinesh_minawa_5.jpeg", position: "center 15%" },
+                  { name: "Arjun Verma", label: "06. Channel Partner", phone: "9165523333", image: "/channelpartners/Arjun_verma_6.jpeg", position: "center 30%" },
+                  { name: "Gabbar Singh Rana", label: "07. Channel Partner", phone: "8817181518", image: "/channelpartners/Gabbar_Singh_Rana_7.jpeg" },
+                  { name: "Mahesh Deshwali", label: "08. Channel Partner", phone: "9770261882", image: "/channelpartners/Mahesh_deshwali_8.jpeg", position: "center 20%" },
+                  { name: "Shekhar Patel", label: "09. Channel Partner", phone: "9926612302", image: "/channelpartners/Shekhar_patel_9.jpeg" },
+                  { name: "Kavita Selar", label: "10. Channel Partner", phone: "9630163853", image: "/channelpartners/Kavita_selar_10.jpeg", position: "center" },
+                  { name: "Pradeep Khanve", label: "11. Channel Partner", phone: "9630557687", image: "/channelpartners/pradeep_khanve_11.jpeg", position: "center 15%" }
                ].map((partner, index) => (
                   <motion.div
                      key={partner.name}
@@ -288,18 +298,31 @@ export function Team() {
                      <div 
                         className="relative aspect-[4/3] w-full rounded-[16px] overflow-hidden mb-4 cursor-zoom-in"
                         onClick={() => setActivePhoto(partner.image)}
-                     >
-                        <img
-                           src={partner.image}
-                           alt={partner.name}
-                           className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                           style={{ objectPosition: partner.position || "top" }}
-                        />
-                     </div>
-                     <div className="flex flex-col flex-grow text-center">
-                        <span className="text-[15px] font-black text-black tracking-tight leading-tight mb-1">{partner.name}</span>
-                        <span className="text-[9px] font-bold text-black/40 tracking-[0.05em] uppercase">{partner.label}</span>
-                     </div>
+                      >
+                         <img
+                            src={partner.image}
+                            alt={partner.name}
+                            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                            style={{ objectPosition: partner.position || "top" }}
+                         />
+                      </div>
+                      <div className="flex flex-col flex-grow text-center items-center justify-between">
+                         <div>
+                            <span className="text-[15px] font-black text-black tracking-tight leading-tight mb-1 block">{partner.name}</span>
+                            <span className="text-[9px] font-bold text-black/40 tracking-[0.05em] uppercase block mb-2">{partner.label}</span>
+                         </div>
+                         {partner.phone && (
+                            <a 
+                               href={`tel:+91${partner.phone}`} 
+                               className="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-[#968370] hover:text-black transition-colors"
+                            >
+                               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                               </svg>
+                               +91 {partner.phone.replace(/(\d{5})(\d{5})/, "$1 $2")}
+                            </a>
+                         )}
+                      </div>
                   </motion.div>
                ))}
             </div>

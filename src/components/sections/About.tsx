@@ -1,9 +1,27 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export function About() {
+  const [lang, setLang] = useState<'en' | 'hi'>('en');
+
+  const content = {
+    en: {
+      subHeading: "Premium Real Estate & Construction Firm, Indore",
+      description: "Rudraksha Properties & Construction is a highly-rated real estate firm based in Indore, MP. With 12 years of excellence, we specialize in property investment, residential plot development, and turnkey construction — maintaining a 4.8★ customer rating on Justdial.",
+      missionTitle: "Our Mission & Vision",
+      missionText: "At Rudraksha Properties, our mission is to deliver transparent, legally verified, and high-quality properties to every client. From residential plots to commercial developments, we ensure every investment is backed by trust and integrity. Our vision is to be Madhya Pradesh's most trusted real estate brand — a journey of 12 years, From Zero To Peak."
+    },
+    hi: {
+      subHeading: "इंदौर की प्रीमियम रियल एस्टेट और कंस्ट्रक्शन फर्म",
+      description: "रुद्राक्ष प्रॉपर्टीज एंड कंस्ट्रक्शन इंदौर (MP) की एक टॉप-रेटेड रियल एस्टेट फर्म है। पिछले 12 सालों से हम प्रॉपर्टी इन्वेस्टमेंट, रेसिडेंशियल प्लॉट डेवलपमेंट और कंस्ट्रक्शन के काम में एक्सपर्ट हैं। Justdial पर हमारी 4.8★ कस्टमर रेटिंग है।",
+      missionTitle: "हमारा मिशन और विजन",
+      missionText: "रुद्राक्ष प्रॉपर्टीज में हमारा मिशन हर कस्टमर को पूरी तरह से लीगल, वेरीफाइड और बेस्ट क्वालिटी प्रॉपर्टीज देना है। चाहे रेसिडेंशियल प्लॉट हो या कमर्शियल काम, हम हर डील में भरोसा और ईमानदारी पक्की करते हैं। हमारा विजन मध्य प्रदेश का सबसे भरोसेमंद रियल एस्टेट ब्रांड बनना है — 12 साल का यह सफर, शून्य से शिखर तक (From Zero To Peak)।"
+    }
+  };
+
   return (
     <section id="about" className="w-full bg-white pb-12 md:pb-32 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-3 md:px-3 lg:px-3">
@@ -43,10 +61,26 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[70px] md:text-[100px] lg:text-[140px] font-extrabold leading-none tracking-[0.05em] text-black uppercase mb-8 md:mb-12"
+              className="text-[70px] md:text-[100px] lg:text-[140px] font-extrabold leading-none tracking-[0.05em] text-black uppercase mb-4"
             >
               Us
             </motion.h2>
+
+            {/* Language Switcher */}
+            <div className="flex gap-1 items-center bg-[#eeeae7]/60 p-1 rounded-full w-fit mb-6 border border-black/5">
+              <button 
+                onClick={() => setLang("en")}
+                className={`px-3 py-1 rounded-full text-[10px] font-black tracking-wider transition-all duration-300 ${lang === 'en' ? 'bg-[#968370] text-white shadow-sm' : 'text-black/60 hover:text-black'}`}
+              >
+                EN
+              </button>
+              <button 
+                onClick={() => setLang("hi")}
+                className={`px-3 py-1 rounded-full text-[10px] font-black tracking-wider transition-all duration-300 ${lang === 'hi' ? 'bg-[#968370] text-white shadow-sm' : 'text-black/60 hover:text-black'}`}
+              >
+                हिंदी
+              </button>
+            </div>
 
             <motion.div
               initial={{ opacity: 0 }}
@@ -55,12 +89,23 @@ export function About() {
               transition={{ duration: 1, delay: 0.3 }}
               className="space-y-4 max-w-[280px]"
             >
-              <p className="text-[11px] md:text-[13px] font-bold text-black uppercase tracking-[0.05em]">
-                Premium Real Estate & <br /> Construction Firm, Indore
-              </p>
-              <p className="text-[14px] md:text-[16px] text-black/60 font-medium leading-relaxed">
-                Rudraksha Properties & Construction is a highly-rated real estate firm based in Indore, MP. With 12 years of excellence, we specialize in property investment, residential plot development, and turnkey construction — maintaining a 4.8★ customer rating on Justdial.
-              </p>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={lang}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-4"
+                >
+                  <p className="text-[11px] md:text-[13px] font-bold text-black uppercase tracking-[0.05em] leading-normal">
+                    {content[lang].subHeading}
+                  </p>
+                  <p className="text-[14px] md:text-[16px] text-black/60 font-medium leading-relaxed">
+                    {content[lang].description}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
             </motion.div>
           </div>
 
@@ -111,12 +156,23 @@ export function About() {
               </div>
 
               <div className="space-y-2">
-                <h3 className="text-[20px] md:text-[10px] lg:text-[20px] font-extrabold tracking-tight text-black leading-none">
-                  Our Mission & Vision
-                </h3>
-                <p className="text-[14px] md:text-[15px] text-black/60 font-medium leading-relaxed">
-                  At Rudraksha Properties, our mission is to deliver transparent, legally verified, and high-quality properties to every client. From residential plots to commercial developments, we ensure every investment is backed by trust and integrity. Our vision is to be Madhya Pradesh's most trusted real estate brand — a journey of 12 years, From Zero To Peak.
-                </p>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={lang}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-2"
+                  >
+                    <h3 className="text-[20px] md:text-[10px] lg:text-[20px] font-extrabold tracking-tight text-black leading-none">
+                      {content[lang].missionTitle}
+                    </h3>
+                    <p className="text-[14px] md:text-[15px] text-black/60 font-medium leading-relaxed">
+                      {content[lang].missionText}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </motion.div>
           </div>
